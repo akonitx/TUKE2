@@ -4,17 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Životopis. Taras Chornyi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #121212;
-      --panel: #1b1b1b;
-      --text: #cfcfcf;
+      --bg: #0e0e0e;
+      --panel: #181818;
+      --text: #d6d6d6;
       --muted: #8a8a8a;
-      --red: #b00020;
+      --red: #a8001c;
       --red-bright: #e0102f;
+      --font: "IBM Plex Mono", "Roboto Mono", Consolas, "Courier New", monospace;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; border-radius: 0; }
 
     body {
       margin: 0 auto;
@@ -22,24 +28,27 @@
       padding: 48px 24px;
       background: var(--bg);
       color: var(--text);
-      font-family: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, "Courier New", monospace;
+      font-family: var(--font);
+      font-weight: 500;
       line-height: 1.7;
     }
 
     h1 {
       margin: 0 0 24px;
       padding-bottom: 12px;
-      font-size: 2rem;
-      letter-spacing: 0.08em;
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #fff;
-      border-bottom: 3px solid var(--red);
+      border-bottom: 4px solid var(--red);
     }
 
     h2 {
       margin: 40px 0 12px;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--red-bright);
     }
@@ -51,15 +60,14 @@
 
     img[width="200"] {
       display: block;
-      border: 2px solid var(--red);
-      border-radius: 4px;
-      filter: grayscale(100%) contrast(1.05);
+      border: 3px solid var(--red);
+      filter: grayscale(100%) contrast(1.1);
       transition: filter 0.3s, box-shadow 0.3s;
     }
 
     a:hover img[width="200"] {
       filter: grayscale(0%);
-      box-shadow: 0 0 18px rgba(176, 0, 32, 0.6);
+      box-shadow: 0 0 18px rgba(168, 0, 28, 0.6);
     }
 
     ul {
@@ -69,76 +77,12 @@
     }
 
     li {
-      padding: 8px 12px;
+      padding: 8px 14px;
       margin-bottom: 6px;
       background: var(--panel);
-      border-left: 3px solid var(--red);
+      border-left: 4px solid var(--red);
+      font-weight: 700;
     }
 
-    h2 + ul li::before {
-      content: "> ";
-      color: var(--red-bright);
-    }
-
-    p {
-      color: var(--muted);
-      margin: 0 0 12px;
-    }
-
-    /* contact list with icons */
-    li img {
-      width: 24px;
-      height: 24px;
-      vertical-align: middle;
-      margin-right: 10px;
-      filter: invert(1) opacity(0.85); /* black icons -> light */
-    }
-
-    a {
-      color: var(--red-bright);
-      text-decoration: none;
-      border-bottom: 1px dashed var(--red);
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    a:hover {
-      color: #fff;
-      border-bottom-color: #fff;
-    }
-
-    ::selection {
-      background: var(--red);
-      color: #fff;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Taras Chornyi</h1>
-
-  <a href="https://www.instagram.com/akonitx/">
-    <img src="https://akonitx.github.io/TUKE2/6DB409F7-7E14-474B-B6BC-6CD956D75572_1_201_a.jpeg" alt="Fotografia – Taras Chornyi" width="200">
-  </a>
-
-  <h2>Čo ma baví</h2>
-  <ul>
-    <li>plávanie</li>
-    <li>volejbal</li>
-    <li>Kartové hry (durak)</li>
-  </ul>
-
-  <h2>Kontakt a sociálne siete</h2>
-  <p>Som tu.</p>
-  <ul>
-    <li>
-      <img src="https://cdn.simpleicons.org/github" alt="GitHub">
-      <a href="https://github.com/akonitx">akonitx</a>
-    </li>
-    <li>
-      <img src="https://cdn.simpleicons.org/instagram" alt="Instagram">
-      <a href="https://www.instagram.com/akonitx/">akonitx</a>
-    </li>
-  </ul>
-
-</body>
-</html>
+    h2 + ul li::before,
+    p + ul
