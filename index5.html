@@ -22,15 +22,91 @@
 
     * { box-sizing: border-box; border-radius: 0; }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
     body {
-      margin: 0 auto;
-      max-width: 640px;
-      padding: 48px 24px;
+      margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: var(--font);
       font-weight: 500;
       line-height: 1.7;
+    }
+
+    /* ---------- HEADER ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(14, 14, 14, 0.95);
+      border-bottom: 3px solid var(--red);
+    }
+
+    .header-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+      border-bottom: none;
+    }
+
+    .logo span { color: var(--red-bright); }
+
+    .cursor {
+      display: inline-block;
+      width: 0.6em;
+      height: 1em;
+      margin-left: 4px;
+      vertical-align: text-bottom;
+      background: var(--red-bright);
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    .site-header nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .site-header nav a {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+    }
+
+    .site-header nav a:hover {
+      color: #fff;
+      border-bottom-color: var(--red-bright);
+    }
+
+    /* ---------- MAIN ---------- */
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px 48px;
     }
 
     h1 {
@@ -84,10 +160,7 @@
       font-weight: 700;
     }
 
-    h2 + ul li::before,
-    p + ul li::before { content: none; }
-
-    h2 + ul li::before {
+    #hobby li::before {
       content: "> ";
       color: var(--red-bright);
     }
@@ -117,39 +190,103 @@
       border-bottom-color: #fff;
     }
 
+    /* ---------- JOKE ---------- */
+    .joke {
+      margin: 0 0 16px;
+      padding: 18px 20px;
+      background: var(--panel);
+      border-left: 4px solid var(--red);
+    }
+
+    .joke p {
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+
+    .joke p:last-child { margin-bottom: 0; }
+
+    .joke .punch {
+      color: var(--red-bright);
+      font-weight: 700;
+    }
+
+    .joke-small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 20px 24px 40px;
+      border-top: 1px solid #2a2a2a;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     ::selection {
       background: var(--red);
       color: #fff;
     }
   </style>
 </head>
-<body>
+<body id="top">
 
-  <h1>Taras Chornyi</h1>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top"><span>~/</span>taras_chornyi<i class="cursor"></i></a>
+      <nav>
+        <a href="#hobby">Hobby</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#humor">Humor</a>
+      </nav>
+    </div>
+  </header>
 
-  <a href="https://www.instagram.com/akonitx/">
-    <img src="https://akonitx.github.io/TUKE2/6DB409F7-7E14-474B-B6BC-6CD956D75572_1_201_a.jpeg" alt="Fotografia – Taras Chornyi" width="200">
-  </a>
+  <main>
+    <h1>Taras Chornyi</h1>
 
-  <h2>Čo ma baví</h2>
-  <ul>
-    <li>plávanie</li>
-    <li>volejbal</li>
-    <li>Kartové hry (durak)</li>
-  </ul>
+    <a href="https://www.instagram.com/akonitx/">
+      <img src="https://akonitx.github.io/TUKE2/6DB409F7-7E14-474B-B6BC-6CD956D75572_1_201_a.jpeg" alt="Fotografia – Taras Chornyi" width="200">
+    </a>
 
-  <h2>Kontakt a sociálne siete</h2>
-  <p>Som tu.</p>
-  <ul>
-    <li>
-      <img src="https://cdn.simpleicons.org/github" alt="GitHub">
-      <a href="https://github.com/akonitx">akonitx</a>
-    </li>
-    <li>
-      <img src="https://cdn.simpleicons.org/instagram" alt="Instagram">
-      <a href="https://www.instagram.com/akonitx/">akonitx</a>
-    </li>
-  </ul>
+    <h2 id="hobby">Čo ma baví</h2>
+    <ul id="hobby-list">
+      <li>plávanie</li>
+      <li>volejbal</li>
+      <li>Kartové hry (durak)</li>
+    </ul>
+
+    <h2 id="kontakt">Kontakt a sociálne siete</h2>
+    <p>Som tu.</p>
+    <ul>
+      <li>
+        <img src="https://cdn.simpleicons.org/github" alt="GitHub">
+        <a href="https://github.com/akonitx">akonitx</a>
+      </li>
+      <li>
+        <img src="https://cdn.simpleicons.org/instagram" alt="Instagram">
+        <a href="https://www.instagram.com/akonitx/">akonitx</a>
+      </li>
+    </ul>
+
+    <h2 id="humor">Čierny humor</h2>
+    <div class="joke">
+      <p>– Pán doktor, mám pre vás dve správy: dobrú a zlú.</p>
+      <p>– Začnite tou zlou.</p>
+      <p>– Zostáva vám 24 hodín života.</p>
+      <p>– A tá dobrá?</p>
+      <p class="punch">– Včera som vám to zabudol povedať.</p>
+    </div>
+    <p class="joke-small">Bonus pre logistikov: smrť je najlepší dopravca. Vždy dorazí načas, na správne miesto a nikdy nestratí zásielku.</p>
+  </main>
+
+  <footer>
+    &copy; 2026 Taras Chornyi // TUKE
+  </footer>
 
 </body>
 </html>
